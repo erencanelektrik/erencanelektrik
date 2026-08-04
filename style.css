@@ -29,8 +29,8 @@ img{max-width:100%;display:block}
 .cta-outline:hover{background:rgba(255,255,255,.08)}
 /* Hero */
 .hero{position:relative;overflow:hidden;min-height:78vh;display:flex;align-items:center}
-.hero-bg{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;pointer-events:none}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(11,18,32,.88) 0%, rgba(11,18,32,.72) 45%, rgba(11,18,32,.45) 100%), radial-gradient(900px 600px at 70% 10%, rgba(91,140,255,.18), transparent 60%)}
+.hero-bg{position:absolute;inset:0;background-position:center 12%;background-size:cover;background-repeat:no-repeat;pointer-events:none}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(11,18,32,.82) 0%, rgba(11,18,32,.55) 42%, rgba(11,18,32,.28) 100%), linear-gradient(180deg, rgba(11,18,32,.15) 0%, transparent 35%)}
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:96px 0 72px;max-width:720px}
 .hero-brand{margin:0 0 10px;font-family:'Montserrat', ui-sans-serif, system-ui, sans-serif;font-weight:700;font-size:clamp(18px,2.4vw,28px);letter-spacing:.2px;color:#fff}
 h1{font-size:clamp(36px,5vw,56px);line-height:1.06;margin:0}
