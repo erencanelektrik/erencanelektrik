@@ -3,6 +3,21 @@ const io = new IntersectionObserver((entries)=>{
 },{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
+const MARQUEE_SPEED = 70;
+document.querySelectorAll('.marquee .track').forEach((track) => {
+  const imgs = [...track.querySelectorAll('img')];
+  Promise.all(imgs.map((img) => img.complete ? Promise.resolve() : new Promise((resolve) => {
+    img.addEventListener('load', resolve, { once: true });
+    img.addEventListener('error', resolve, { once: true });
+  }))).then(() => {
+    const distance = track.scrollWidth / 2;
+    if (distance > 0) {
+      track.style.setProperty('--marquee-duration', `${Math.max(distance / MARQUEE_SPEED, 12)}s`);
+    }
+    track.classList.add('is-ready');
+  });
+});
+
 const toggle = document.querySelector('.nav-toggle');
 const menu = document.querySelector('#site-menu');
 
