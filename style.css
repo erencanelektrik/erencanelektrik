@@ -102,7 +102,6 @@ label{font-size:.95rem}
   width: auto;
 }
 /* === Logo yanına beyaz 'Erencan Elektrik' yazısı (Montserrat) === */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
 
 /* Logo ve yazıyı aynı hizada tut */
 .header .brand{
@@ -137,3 +136,7 @@ label{font-size:.95rem}
   .header .brand::after{ font-size: clamp(14px, 4vw, 20px); }
 }
 /* === /Logo yanında yazı === */
+
+/* SEO başlığı: uzun H1 için ölçü */
+.hero-title{font-size:clamp(30px,4.2vw,48px);line-height:1.1}
+footer a{color:inherit}
