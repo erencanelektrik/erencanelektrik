@@ -140,3 +140,12 @@ label{font-size:.95rem}
 /* SEO başlığı: uzun H1 için ölçü */
 .hero-title{font-size:clamp(30px,4.2vw,48px);line-height:1.1}
 footer a{color:inherit}
+
+/* SSS */
+.faq{display:grid;gap:10px;max-width:860px}
+.faq-item{background:linear-gradient(180deg,rgba(17,25,43,.92),rgba(17,25,43,.72));border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:0 18px}
+.faq-item summary{cursor:pointer;list-style:none;padding:16px 28px 16px 0;font-weight:600;position:relative}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:22px;opacity:.7}
+.faq-item[open] summary::after{content:"–"}
+.faq-item p{margin:0 0 16px;color:var(--muted);line-height:1.6}
