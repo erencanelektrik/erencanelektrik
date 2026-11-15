@@ -12,7 +12,7 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-V = "8"  # önbellek sürümü: CSS/JS/görsel değişince artırın
+V = "9"  # önbellek sürümü: CSS/JS/görsel değişince artırın
 
 from pages_data import PAGES  # noqa: E402
 
@@ -106,9 +106,8 @@ def footer():
 
 def plate():
     rows = [("Kuruluş", "2004, Beylikdüzü"),
-            ("Keşif", "Ücretsiz"),
-            ("Gönderim", "Türkiye'nin her yerine"),
-            ("Açık", "Pzt–Cmt 08:00–19:00")]
+            ("Hizmet bölgesi", "Türkiye geneli"),
+            ("Çalışma saatleri", "Pzt–Cmt 08:00–19:00")]
     cells = "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in rows)
     return f'<dl class="facts" aria-label="Firma bilgileri">{cells}</dl>'
 

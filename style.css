@@ -80,7 +80,7 @@ p{margin:0 0 1em}
 .facts-wrap::before{content:"";display:block;height:6px;
   background:linear-gradient(90deg,var(--l1) 0 20%,var(--l2) 20% 40%,var(--l3) 40% 60%,var(--n) 60% 80%,transparent 80%),
              repeating-linear-gradient(135deg,var(--pe-g) 0 6px,var(--pe-y) 6px 12px)}
-.facts{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.facts{margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 .facts div{padding:26px 24px 28px;border-left:1px solid var(--line)}
 .facts div:first-child{border-left:0;padding-left:0}
 .facts dt{font-size:14px;color:var(--ink-2)}
@@ -183,9 +183,6 @@ p{margin:0 0 1em}
   .hero-photo{order:-1;aspect-ratio:16/10;min-height:0}
   .hero-panel{padding:36px 16px 44px;justify-content:flex-start}
   .hero-inner{max-width:none}
-  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .facts div:nth-child(3){border-left:0;padding-left:0}
-  .facts div:nth-child(n+3){border-top:1px solid var(--line)}
   .services{grid-template-columns:1fr}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:12px}
   .foot{grid-template-columns:1fr 1fr}
@@ -206,9 +203,10 @@ p{margin:0 0 1em}
   .block{padding:52px 0}
   .hero .actions{display:grid;grid-template-columns:1fr 1fr}
   .hero .btn{justify-content:center;padding:0 12px}
-  .facts div{padding:18px 14px 20px}
-  .facts div:nth-child(odd){padding-left:0}
-  .facts dd{font-size:18px}
+  .facts{grid-template-columns:1fr}
+  .facts div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0;border-left:0}
+  .facts div + div{border-top:1px solid var(--line)}
+  .facts dd{font-size:18px;margin:0;text-align:right}
   .marquee-track li{flex-basis:140px;height:80px}
   .marquee-track img{transform:scale(.85)}
   .ticks{grid-template-columns:1fr}
