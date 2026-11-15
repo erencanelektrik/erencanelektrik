@@ -12,7 +12,7 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-V = "5"  # önbellek sürümü: CSS/JS/görsel değişince artırın
+V = "6"  # önbellek sürümü: CSS/JS/görsel değişince artırın
 
 from pages_data import PAGES  # noqa: E402
 
@@ -44,6 +44,16 @@ def logo(stem_or_key, alt, size=1.0):
     w, h = round(v["w"] * size), round(v["h"] * size)
     return (f'<img src="/{v["file"]}?v={V}" width="{w}" height="{h}" alt="{alt}" '
             f'loading="lazy" decoding="async">')
+
+
+def marquee(items, label, speed=38, size=1.0):
+    """Kayan logo şeridi. İkinci kopya yalnızca döngü için, ekran okuyuculardan gizli."""
+    one = "".join(f"<li>{logo(f, alt, size).replace(' loading=\"lazy\"', '')}</li>" for alt, f in items)
+    two = "".join(f"<li>{logo(f, '', size).replace(' loading=\"lazy\"', '')}</li>" for alt, f in items)
+    dur = round(len(items) * 180 / speed)
+    return (f'<div class="marquee" style="--dur:{dur}s">'
+            f'<ul class="marquee-track" aria-label="{label}">{one}</ul>'
+            f'<ul class="marquee-track" aria-hidden="true">{two}</ul></div>')
 
 
 def header(current=None):
@@ -100,7 +110,7 @@ def plate():
             ("Gönderim", "Türkiye'nin her yerine"),
             ("Açık", "Pzt–Cmt 08:00–19:00")]
     cells = "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in rows)
-    return f'<dl class="plate" aria-label="Firma bilgileri">{cells}</dl>'
+    return f'<dl class="facts" aria-label="Firma bilgileri">{cells}</dl>'
 
 
 def faq(items):
@@ -150,7 +160,7 @@ def home():
     head = re.sub(r'\s*<link rel="stylesheet"[^>]*>', "", head)
     head = re.sub(r'\s*<link rel="preload"[^>]*>', "", head)
     head = re.sub(r'<meta name="theme-color" content="[^"]*">', '<meta name="theme-color" content="#093b6f">', head)
-    head = head.replace("</title>", f'</title>\n  <link rel="preload" as="image" href="/assets/hakkimizda1.webp?v={V}" fetchpriority="high">', 1)
+    head = head.replace("</title>", f'</title>\n  <link rel="preload" as="image" href="/assets/vitrin.webp?v={V}" fetchpriority="high" media="(min-width: 901px)">\n  <link rel="preload" as="image" href="/assets/vitrin-900.webp?v={V}" fetchpriority="high" media="(max-width: 900px)">', 1)
     head = head.replace('<link rel="icon"', f'{FONT}\n  <link rel="stylesheet" href="/style.css?v={V}">\n  <link rel="icon"', 1)
 
     services = "\n".join(f'''      <li>
@@ -164,18 +174,24 @@ def home():
 {header()}
 <main id="icerik">
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-text">
+    <div class="hero-panel">
+      <div class="hero-inner">
         <h1>Beylikdüzü'nde elektrik malzemesi, pano ve taahhüt</h1>
         <p class="lead">Birlik Sanayi Sitesi'ndeki mağazamızda 2004'ten beri şalt, kablo ve pano malzemesi satıyor; fabrika, ticari yapı ve konut projelerinin elektrik işlerini üstleniyoruz.</p>
-        {actions()}
-        {plate()}
+        <div class="actions">
+          <a class="btn btn-light" href="{WA}" rel="noopener">WhatsApp'tan yazın</a>
+          <a class="btn btn-ghost" href="tel:{TEL}">{TEL_TXT}</a>
+        </div>
       </div>
-      <figure class="hero-photo">
-        <img src="/assets/hakkimizda1.webp?v={V}" width="900" height="1200" alt="Erencan Elektrik'in Birlik Sanayi Sitesi'ndeki mağazası" fetchpriority="high">
-      </figure>
     </div>
+    <picture class="hero-photo">
+      <source media="(max-width: 900px)" srcset="/assets/vitrin-900.webp?v={V}">
+      <img src="/assets/vitrin.webp?v={V}" width="1536" height="1044" alt="Erencan Elektrik'in Birlik Sanayi Sitesi'ndeki mağazası" fetchpriority="high">
+    </picture>
   </section>
+  <div class="facts-wrap">
+    <div class="wrap">{plate()}</div>
+  </div>
 
   <section class="block" id="hizmetler">
     <div class="wrap">
@@ -190,14 +206,14 @@ def home():
     <div class="wrap">
       <h2>Satışını yaptığımız markalar</h2>
       <p class="section-note">Bu markaların ürünleri mağazamızda stokta. Aradığınız ürün yoksa sipariş üzerine getiriyoruz.</p>
-      <ul class="logo-grid">{brands}</ul>
+      {marquee(LISTS["markalar"], "Satışını yaptığımız markalar")}
     </div>
   </section>
 
   <section class="block" id="referanslar">
     <div class="wrap">
       <h2>Çalıştığımız firmalardan bazıları</h2>
-      <ul class="logo-grid logo-grid-sm">{refs}</ul>
+      {marquee(LISTS["referanslar"], "Referans firmalar", speed=32, size=.9)}
     </div>
   </section>
 
