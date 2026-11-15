@@ -106,7 +106,7 @@ def footer():
 
 def plate():
     rows = [("Kuruluş", "2004, Beylikdüzü"),
-            ("Satış", "Perakende ve toptan"),
+            ("Keşif", "Ücretsiz"),
             ("Gönderim", "Türkiye'nin her yerine"),
             ("Açık", "Pzt–Cmt 08:00–19:00")]
     cells = "".join(f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in rows)
