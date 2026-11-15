@@ -205,7 +205,7 @@ def home():
   <section class="block block-steel" id="markalar">
     <div class="wrap">
       <h2>Satışını yaptığımız markalar</h2>
-      <p class="section-note">Bu markaların ürünleri mağazamızda stokta. Aradığınız ürün yoksa sipariş üzerine getiriyoruz.</p>
+      <p class="section-note">Bu markaların ürünleri mağazamızda stokta.</p>
       {marquee(LISTS["markalar"], "Satışını yaptığımız markalar")}
     </div>
   </section>
