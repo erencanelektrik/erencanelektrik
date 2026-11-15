@@ -12,7 +12,7 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-V = "10"  # önbellek sürümü: CSS/JS/görsel değişince artırın
+V = "11"  # önbellek sürümü: CSS/JS/görsel değişince artırın
 
 from pages_data import PAGES  # noqa: E402
 
@@ -24,6 +24,7 @@ MAIL = "erencanelektrik@gmail.com"
 ADDR_LINE1 = "Beylikdüzü OSB Mah., Birlik Sanayi Sitesi"
 ADDR_LINE2 = "2. Cad. No:1/1 D:4, 34524 Beylikdüzü / İstanbul"
 MAPS = "https://maps.app.goo.gl/eDhi7KrXCUre3yDB6"
+REVIEW = "https://g.page/r/CSnbCvFlFnZ-EBM/review"
 MAP_EMBED = ("https://maps.google.com/maps?q=Erencan+Elektrik,+Birlik+Sanayi+Sitesi,"
              "+Beylikd%C3%BCz%C3%BC,+%C4%B0stanbul&z=16&output=embed")
 HOURS = "Pazartesi–Cumartesi 08:00–19:00"
@@ -92,7 +93,7 @@ def footer():
     <div>
       <p class="foot-h">Çalışma saatleri</p>
       <p>{HOURS}</p>
-      <p><a href="https://instagram.com/erencanelektrik" rel="noopener">Instagram</a></p>
+      <p><a href="https://instagram.com/erencanelektrik" rel="noopener">Instagram</a><br><a href="{REVIEW}" rel="noopener">Google'da değerlendirin</a></p>
     </div>
   </div>
   <p class="wrap copy">© 2026 Erencan Elektrik</p>
@@ -252,6 +253,7 @@ def home():
           <div><dt>Hizmet bölgesi</dt><dd>Beylikdüzü merkezli, İstanbul geneli. Malzeme gönderimi Türkiye geneline.</dd></div>
         </dl>
         {actions()}
+        <p class="review-note">Bizimle çalıştıysanız <a href="{REVIEW}" rel="noopener">Google'da değerlendirmenizi</a> bekleriz.</p>
       </div>
       <iframe class="map" title="Erencan Elektrik konumu" src="{MAP_EMBED}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
