@@ -143,7 +143,7 @@ HOME_SERVICES = [
 HOME_FAQ = [
     ("Tek parça (perakende) malzeme alabilir miyim?", "Evet. Mağazamızda hem perakende hem toptan satış yapıyoruz; tek bir sigortadan büyük proje siparişlerine kadar malzeme temin edebilirsiniz."),
     ("Toptan alan firmalara özel fiyat veya cari hesap imkânı var mı?", "Evet. Düzenli ve toptan alım yapan firmalara özel fiyat ve cari hesap imkânı sunuyoruz. Detaylar için bizimle iletişime geçebilirsiniz."),
-    ("Hangi markaların ürünlerini satıyorsunuz?", "Siemens, Schneider Electric, Legrand, Viko, Entes, Emas, Omron, Finder, Philips, Nexans, Borsan ve Öznur başta olmak üzere sektörün önde gelen markalarının şalt, kablo, aydınlatma ve pano malzemelerini satıyoruz."),
+    ("Hangi markaların ürünlerini satıyorsunuz?", "Siemens, Schneider Electric, Legrand, Viko, Entes, Emas, Omron, Finder, Philips, Nexans ve Öznur başta olmak üzere sektörün önde gelen markalarının şalt, kablo, aydınlatma ve pano malzemelerini satıyoruz."),
     ("Malzeme teslimatı veya kargo yapıyor musunuz?", "Evet. Türkiye'nin her yerine malzeme gönderimi yapıyoruz."),
     ("Pano siparişinde süreç nasıl işliyor?", "İhtiyacınıza göre teklif hazırlıyoruz; teklif onaylandıktan sonra panonun imalatına başlıyoruz. Teslim süresi panonun tipine ve büyüklüğüne göre değişir; net süreyi teklif aşamasında bildiriyoruz."),
     ("Elektrik taahhüt işlerinde keşif ücretli mi?", "Hayır, keşif ücretsizdir."),
