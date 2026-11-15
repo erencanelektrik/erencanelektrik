@@ -80,7 +80,7 @@ p{margin:0 0 1em}
 .facts-wrap::before{content:"";display:block;height:6px;
   background:linear-gradient(90deg,var(--l1) 0 20%,var(--l2) 20% 40%,var(--l3) 40% 60%,var(--n) 60% 80%,transparent 80%),
              repeating-linear-gradient(135deg,var(--pe-g) 0 6px,var(--pe-y) 6px 12px)}
-.facts{margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.facts{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .facts div{padding:26px 24px 28px;border-left:1px solid var(--line)}
 .facts div:first-child{border-left:0;padding-left:0}
 .facts dt{font-size:14px;color:var(--ink-2)}
