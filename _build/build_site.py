@@ -12,7 +12,7 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-V = "6"  # önbellek sürümü: CSS/JS/görsel değişince artırın
+V = "7"  # önbellek sürümü: CSS/JS/görsel değişince artırın
 
 from pages_data import PAGES  # noqa: E402
 
@@ -71,7 +71,7 @@ def header(current=None):
     <nav aria-label="Ana menü">
       <ul class="menu" id="site-menu">{links}</ul>
     </nav>
-    <a class="bar-tel" href="tel:{TEL}">{TEL_TXT}</a>
+    <a class="bar-tel" href="tel:{TEL}" aria-label="Bizi arayın: {TEL_TXT}">Bizi arayın</a>
   </div>
 </header>'''
 
@@ -123,7 +123,7 @@ def faq(items):
 def actions():
     return f'''<div class="actions">
         <a class="btn" href="{WA}" rel="noopener">WhatsApp'tan yazın</a>
-        <a class="btn btn-line" href="tel:{TEL}">{TEL_TXT}</a>
+        <a class="btn btn-line" href="tel:{TEL}" aria-label="Bizi arayın: {TEL_TXT}">Bizi arayın</a>
       </div>'''
 
 
@@ -180,7 +180,7 @@ def home():
         <p class="lead">Birlik Sanayi Sitesi'ndeki mağazamızda 2004'ten beri şalt, kablo ve pano malzemesi satıyor; fabrika, ticari yapı ve konut projelerinin elektrik işlerini üstleniyoruz.</p>
         <div class="actions">
           <a class="btn btn-light" href="{WA}" rel="noopener">WhatsApp'tan yazın</a>
-          <a class="btn btn-ghost" href="tel:{TEL}">{TEL_TXT}</a>
+          <a class="btn btn-ghost" href="tel:{TEL}" aria-label="Bizi arayın: {TEL_TXT}">Bizi arayın</a>
         </div>
       </div>
     </div>
