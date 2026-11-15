@@ -12,7 +12,7 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-V = "7"  # önbellek sürümü: CSS/JS/görsel değişince artırın
+V = "8"  # önbellek sürümü: CSS/JS/görsel değişince artırın
 
 from pages_data import PAGES  # noqa: E402
 
@@ -64,7 +64,7 @@ def header(current=None):
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href="/" aria-label="Erencan Elektrik ana sayfa">
-      <img src="/assets/logo.webp?v={V}" alt="" width="44" height="44">
+      <img src="/assets/logo.webp?v={V}" alt="" width="60" height="60">
       <span>Erencan Elektrik</span>
     </a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">Menü</button>

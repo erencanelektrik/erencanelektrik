@@ -25,7 +25,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:84px}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:100px}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;font-stretch:100%}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--navy);text-underline-offset:3px}
@@ -44,9 +44,9 @@ p{margin:0 0 1em}
 
 /* Üst menü */
 .site-header{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;gap:28px;min-height:68px}
-.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:700;font-stretch:85%;font-size:20px;margin-right:auto}
-.brand img{width:40px;height:40px}
+.bar{display:flex;align-items:center;gap:28px;min-height:84px}
+.brand{display:flex;align-items:center;gap:14px;color:var(--navy);text-decoration:none;font-weight:800;font-stretch:82%;font-size:28px;line-height:1;letter-spacing:-.01em;margin-right:auto}
+.brand img{width:60px;height:60px}
 .menu{display:flex;gap:4px;list-style:none;margin:0;padding:0}
 .menu a{display:block;padding:8px 10px;color:var(--ink-2);text-decoration:none;font-size:15.5px}
 .menu a:hover{color:var(--ink);text-decoration:underline}
@@ -199,6 +199,9 @@ p{margin:0 0 1em}
   .menu a{padding:12px 0;font-size:17px;border-bottom:1px solid var(--steel)}
 }
 @media (max-width:600px){
+  .bar{min-height:72px}
+  .brand{font-size:23px;gap:10px}
+  .brand img{width:48px;height:48px}
   body{font-size:16.5px;padding-bottom:64px}
   .block{padding:52px 0}
   .hero .actions{display:grid;grid-template-columns:1fr 1fr}
