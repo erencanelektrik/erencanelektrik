@@ -26,7 +26,7 @@ ADDR_LINE2 = "2. Cad. No:1/1 D:4, 34524 Beylikdüzü / İstanbul"
 MAPS = "https://maps.app.goo.gl/eDhi7KrXCUre3yDB6"
 MAP_EMBED = ("https://maps.google.com/maps?q=Erencan+Elektrik,+Birlik+Sanayi+Sitesi,"
              "+Beylikd%C3%BCz%C3%BC,+%C4%B0stanbul&z=16&output=embed")
-HOURS = "Pazartesi–Cumartesi 08:00–19:00, pazar kapalı"
+HOURS = "Pazartesi–Cumartesi 08:00–19:00, Pazar kapalı"
 
 LOGOS = json.load(open(os.path.join(HERE, "logos.json"), encoding="utf-8"))
 BY_STEM = {os.path.splitext(os.path.basename(v["file"]))[0]: v for v in LOGOS.values()}
@@ -149,7 +149,7 @@ HOME_FAQ = [
     ("Hangi bölgelere hizmet veriyorsunuz?", "Beylikdüzü merkezli olarak İstanbul genelinde hizmet veriyoruz. İstanbul dışındaki projelere de iş ve malzeme gönderimi yapıyoruz."),
     ("Ödeme seçenekleri nelerdir?", "Nakit, kredi kartı ve havale/EFT ile ödeme kabul ediyoruz."),
     ("Ürünlerde garanti nasıl işliyor?", "Sattığımız tüm ürünlerde üretici firmanın garanti koşulları geçerlidir."),
-    ("Çalışma saatleriniz nedir, nasıl teklif alabilirim?", "Pazartesi–Cumartesi 08:00–19:00 arası açığız, pazar günü kapalıyız. Teklif için 0532 586 18 60 numarasından arayabilir veya WhatsApp'tan yazabilirsiniz."),
+    ("Çalışma saatleriniz nedir, nasıl teklif alabilirim?", "Pazartesi–Cumartesi 08:00–19:00 arası açığız, Pazar günü kapalıyız. Teklif için 0532 586 18 60 numarasından arayabilir veya WhatsApp'tan yazabilirsiniz."),
 ]
 
 
