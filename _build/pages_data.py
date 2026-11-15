@@ -1,0 +1,127 @@
+# Hizmet sayfalarının içeriği. Metni değiştirmek için burayı düzenleyip build_site.py çalıştırın.
+PAGES = [
+  {
+    "slug": "elektrik-taahhut",
+    "nav": "Elektrik Taahhüdü",
+    "title": "Elektrik Taahhüt Hizmetleri Beylikdüzü | Erencan Elektrik",
+    "desc": "Beylikdüzü merkezli elektrik taahhüt hizmetleri: endüstriyel tesis, ticari yapı ve konut projelerinde alçak gerilim, bina içi tesisat ve dış saha uygulamaları. Keşif ücretsiz.",
+    "h1": "Elektrik Taahhüt Hizmetleri",
+    "lead": "Endüstriyel tesisler, ticari yapılar ve konut projelerinde elektrik altyapısını uçtan uca, standartlara uygun şekilde kuruyoruz. 2004'ten beri Beylikdüzü merkezli olarak İstanbul geneline ve İstanbul dışındaki projelere hizmet veriyoruz.",
+    "service_type": "Elektrik taahhüt",
+    "blocks": [
+      ("Neler yapıyoruz?", "list", [
+        "Alçak gerilim elektrik sistemlerinin kurulumu",
+        "Bina içi elektrik tesisatı",
+        "Dış saha elektrik uygulamaları",
+        "Dağıtım ve kontrol panolarının kurulumu ve bağlantıları",
+        "Projeye uygun malzemenin kendi stoğumuzdan tedariki",
+      ]),
+      ("Kimlere hizmet veriyoruz?", "list", [
+        "Fabrikalar ve endüstriyel tesisler",
+        "Mağaza, ofis ve ticari yapılar",
+        "Konut projeleri",
+      ]),
+      ("Süreç nasıl işliyor?", "steps", [
+        ("Ücretsiz keşif", "Sahayı yerinde inceleyip ihtiyacı birlikte netleştiriyoruz."),
+        ("Teklif", "İşin kapsamına ve malzeme listesine göre teklifimizi hazırlıyoruz."),
+        ("Uygulama", "Onayın ardından işi standartlara uygun şekilde sahada uyguluyoruz."),
+        ("Teslim", "Çalışmaları kontrol edip tesisatı teslim ediyoruz."),
+      ]),
+    ],
+    "faq": [
+      ("Elektrik taahhüt işlerinde keşif ücretli mi?", "Hayır, keşif ücretsizdir."),
+      ("İstanbul dışındaki projelere hizmet veriyor musunuz?", "Evet. Beylikdüzü merkezli olarak İstanbul genelinde ve İstanbul dışındaki projelerde hizmet veriyoruz."),
+      ("Ödeme seçenekleri nelerdir?", "Nakit, kredi kartı ve havale/EFT ile ödeme kabul ediyoruz."),
+    ],
+  },
+  {
+    "slug": "pano-tasarim-montaj",
+    "nav": "Pano Tasarımı & Montajı",
+    "title": "Elektrik Pano Tasarımı ve Montajı Beylikdüzü | Erencan Elektrik",
+    "desc": "IEC standartlarında endüstriyel ve bina tipi elektrik pano tasarımı ve montajı. Teklif, onay, imalat. Beylikdüzü'nden Türkiye geneline.",
+    "h1": "Elektrik Pano Tasarımı ve Montajı",
+    "lead": "Tesisinizin ihtiyacına uygun, IEC standartlarında, yüksek güvenlikli endüstriyel ve bina tipi panolar tasarlayıp monte ediyoruz. Pano malzemelerini Siemens, Schneider Electric, Legrand ve Entes gibi markaların ürünlerinden kendi stoğumuzdan sağlıyoruz.",
+    "service_type": "Elektrik pano tasarımı ve montajı",
+    "blocks": [
+      ("Pano çözümlerimiz", "list", [
+        "Endüstriyel tesisler için panolar",
+        "Bina tipi dağıtım panoları",
+        "İhtiyaca özel tasarlanan panolar",
+        "Panonun sahada kurulumu ve bağlantıları",
+      ]),
+      ("Sipariş süreci", "steps", [
+        ("İhtiyaç analizi", "Panonun kullanılacağı yeri ve beklentilerinizi dinliyoruz."),
+        ("Teklif", "Pano için teknik ve fiyat teklifimizi hazırlıyoruz."),
+        ("İmalat", "Teklif onaylandıktan sonra panonun imalatına başlıyoruz."),
+        ("Teslim ve montaj", "Hazır panoyu teslim ediyor, gerekirse sahada montajını yapıyoruz."),
+      ]),
+    ],
+    "faq": [
+      ("Pano siparişinde teslim süresi ne kadar?", "Teslim süresi panonun tipine ve büyüklüğüne göre değişir; net süreyi teklif aşamasında bildiriyoruz."),
+      ("Panoda hangi markaların malzemeleri kullanılıyor?", "İhtiyaca göre Siemens, Schneider Electric, Legrand, Entes gibi markaların şalt ve pano malzemelerini kullanıyoruz."),
+      ("İstanbul dışına pano gönderiyor musunuz?", "Evet, İstanbul dışındaki projelere de iş ve malzeme gönderimi yapıyoruz."),
+    ],
+  },
+  {
+    "slug": "elektrik-malzemesi",
+    "nav": "Elektrik Malzemesi",
+    "title": "Beylikdüzü Elektrik Malzemeleri – Perakende ve Toptan | Erencan Elektrik",
+    "desc": "Beylikdüzü'nde perakende ve toptan elektrik malzemesi: Siemens, Schneider, Legrand, Viko, Nexans, Borsan ve daha fazlası. Firmalara cari hesap, Türkiye geneline gönderim.",
+    "h1": "Elektrik Malzemeleri – Perakende ve Toptan Satış",
+    "lead": "Beylikdüzü Birlik Sanayi Sitesi'ndeki mağazamızda sektörün önde gelen markalarının şalt, kablo, bağlantı ve pano malzemelerini satıyoruz. Tek parça alışverişten büyük proje siparişlerine kadar hem perakende hem toptan satış yapıyor, Türkiye'nin her yerine gönderiyoruz.",
+    "service_type": "Elektrik malzemesi satışı",
+    "blocks": [
+      ("Ürün grupları", "list", [
+        "Şalt malzemeleri: sigortalar, kaçak akım röleleri, kontaktörler",
+        "Enerji ve kontrol kabloları",
+        "Anahtar, priz ve bağlantı elemanları",
+        "Pano ve pano içi malzemeler",
+        "Röle ve otomasyon ürünleri",
+        "Aydınlatma ürünleri",
+        "Ölçü aletleri",
+      ]),
+      ("Satışını yaptığımız markalar", "brands", [
+        ("Siemens","siemens.png"),("Schneider Electric","schneider.png"),("Legrand","legrand.png"),("Viko","viko.png"),
+        ("Entes","entes.png"),("Emas","emas.png"),("Omron","omron.png"),("Finder","finder.png"),
+        ("Philips","philips.png"),("Nexans","nexans.png"),("Borsan","borsan.png"),("Öznur","oznur.png"),
+        ("Mutlusan","mutlusan.png"),("Çetinkaya","cetinkaya.png"),("Gate","gate.png"),("Ortaç","ortac.png"),
+        ("Yavuz","yavuz.png"),("Bemis","bemis.png"),("Uni-T","uni-t.png"),("Osaka","osaka.png"),
+        ("ACK","ack.png"),("Gwest","gwest.png"),
+      ]),
+      ("Firmalar için", "list", [
+        "Toptan alımlarda özel fiyat",
+        "Düzenli alım yapan firmalara cari hesap imkânı",
+        "Türkiye'nin her yerine malzeme gönderimi",
+      ]),
+    ],
+    "faq": [
+      ("Tek parça (perakende) malzeme alabilir miyim?", "Evet. Hem perakende hem toptan satış yapıyoruz."),
+      ("Toptan alan firmalara özel fiyat veya cari hesap imkânı var mı?", "Evet. Düzenli ve toptan alım yapan firmalara özel fiyat ve cari hesap imkânı sunuyoruz."),
+      ("Kargo ile gönderim yapıyor musunuz?", "Evet, Türkiye'nin her yerine malzeme gönderimi yapıyoruz."),
+      ("Ürünlerde garanti nasıl işliyor?", "Sattığımız tüm ürünlerde üretici firmanın garanti koşulları geçerlidir."),
+      ("Ödeme seçenekleri nelerdir?", "Nakit, kredi kartı ve havale/EFT ile ödeme kabul ediyoruz."),
+    ],
+  },
+  {
+    "slug": "proje-muhendislik",
+    "nav": "Proje & Mühendislik",
+    "title": "Elektrik Proje ve Mühendislik Danışmanlığı | Erencan Elektrik",
+    "desc": "Elektrik projelendirme, yük hesapları ve teknik şartname uyumunda mühendislik danışmanlığı. Beylikdüzü merkezli, İstanbul ve Türkiye geneli.",
+    "h1": "Elektrik Proje ve Mühendislik Danışmanlığı",
+    "lead": "Uzman mühendislik kadromuzla elektrik projelerinizin planlama aşamasında yanınızdayız. Yük hesaplarından teknik şartname uyumuna kadar projenizi uygulamaya hazır hâle getiriyor, aynı ekiple taahhüt ve malzeme tedarikini de üstlenebiliyoruz.",
+    "service_type": "Elektrik proje ve mühendislik danışmanlığı",
+    "blocks": [
+      ("Danışmanlık kapsamı", "list", [
+        "Elektrik projelendirme",
+        "Yük hesapları",
+        "Teknik şartname uyumunun kontrolü",
+        "Malzeme seçimi ve keşif listesi hazırlanması",
+      ]),
+      ("Neden tek ekip?", "text", "Projeyi hazırlayan, malzemeyi tedarik eden ve sahada uygulayan ekibin aynı olması; projede öngörülen ile sahada yapılan arasındaki farkları azaltır, süreci hızlandırır."),
+    ],
+    "faq": [
+      ("Projeyi hazırladıktan sonra uygulamasını da yapıyor musunuz?", "Evet. Elektrik taahhüt hizmetimizle projenin sahada uygulamasını ve malzeme tedarikini de üstleniyoruz."),
+      ("Keşif ücretli mi?", "Hayır, keşif ücretsizdir."),
+    ],
+  },
+]

@@ -1,0 +1,224 @@
+{
+ "adminsaat.jpg": {
+  "file": "assets/logos/adminsaat.webp",
+  "w": 105,
+  "h": 32,
+  "tile": "#ffffff"
+ },
+ "alpincorap.jpg": {
+  "file": "assets/logos/alpincorap.webp",
+  "w": 107,
+  "h": 32,
+  "tile": "#ffffff"
+ },
+ "btsaliminyum.png": {
+  "file": "assets/logos/btsaliminyum.webp",
+  "w": 52,
+  "h": 52,
+  "tile": "#ffffff"
+ },
+ "deltaelektrik.png": {
+  "file": "assets/logos/deltaelektrik.webp",
+  "w": 110,
+  "h": 31,
+  "tile": "#ffffff"
+ },
+ "kalde.jpg": {
+  "file": "assets/logos/kalde.webp",
+  "w": 97,
+  "h": 35,
+  "tile": "#ffffff"
+ },
+ "nitroistambalaj.png": {
+  "file": "assets/logos/nitroistambalaj.webp",
+  "w": 95,
+  "h": 36,
+  "tile": "#ffffff"
+ },
+ "sarımet.jpg": {
+  "file": "assets/logos/sarımet.webp",
+  "w": 118,
+  "h": 29,
+  "tile": "#ffffff"
+ },
+ "selcuklupress.png": {
+  "file": "assets/logos/selcuklupress.webp",
+  "w": 121,
+  "h": 28,
+  "tile": "#ffffff"
+ },
+ "yıldızkolor.png": {
+  "file": "assets/logos/yıldızkolor.webp",
+  "w": 128,
+  "h": 27,
+  "tile": "#ffffff"
+ },
+ "sevibebe.webp": {
+  "file": "assets/logos/sevibebe.webp",
+  "w": 90,
+  "h": 38,
+  "tile": "#ffffff"
+ },
+ "sevkattekstil.jpg": {
+  "file": "assets/logos/sevkattekstil.webp",
+  "w": 129,
+  "h": 26,
+  "tile": "#ffffff"
+ },
+ "siamp.png": {
+  "file": "assets/logos/siamp.webp",
+  "w": 112,
+  "h": 30,
+  "tile": "#ffffff"
+ },
+ "tema.png": {
+  "file": "assets/logos/tema.webp",
+  "w": 95,
+  "h": 36,
+  "tile": "#ffffff"
+ },
+ "aksoylar.png": {
+  "file": "assets/logos/aksoylar.webp",
+  "w": 117,
+  "h": 29,
+  "tile": "#ffffff"
+ },
+ "akport.png": {
+  "file": "assets/logos/akport.webp",
+  "w": 101,
+  "h": 34,
+  "tile": "#ffffff"
+ },
+ "siemens.png": {
+  "file": "assets/logos/siemens.webp",
+  "w": 132,
+  "h": 21,
+  "tile": "#ffffff"
+ },
+ "schneider.png": {
+  "file": "assets/logos/schneider.webp",
+  "w": 106,
+  "h": 32,
+  "tile": "#ffffff"
+ },
+ "entes.png": {
+  "file": "assets/logos/entes.webp",
+  "w": 105,
+  "h": 32,
+  "tile": "#fbd600"
+ },
+ "viko.png": {
+  "file": "assets/logos/viko.webp",
+  "w": 82,
+  "h": 41,
+  "tile": "#ffffff"
+ },
+ "emas.png": {
+  "file": "assets/logos/emas.webp",
+  "w": 119,
+  "h": 29,
+  "tile": "#ffffff"
+ },
+ "oznur.png": {
+  "file": "assets/logos/oznur.webp",
+  "w": 87,
+  "h": 39,
+  "tile": "#ffffff"
+ },
+ "mutlusan.png": {
+  "file": "assets/logos/mutlusan.webp",
+  "w": 132,
+  "h": 22,
+  "tile": "#ffffff"
+ },
+ "cetinkaya.png": {
+  "file": "assets/logos/cetinkaya.webp",
+  "w": 101,
+  "h": 34,
+  "tile": "#ffffff"
+ },
+ "gate.png": {
+  "file": "assets/logos/gate.webp",
+  "w": 101,
+  "h": 34,
+  "tile": "#ffffff"
+ },
+ "ortac.png": {
+  "file": "assets/logos/ortac.webp",
+  "w": 132,
+  "h": 26,
+  "tile": "#ffffff"
+ },
+ "legrand.png": {
+  "file": "assets/logos/legrand.webp",
+  "w": 117,
+  "h": 29,
+  "tile": "#ffffff"
+ },
+ "yavuz.png": {
+  "file": "assets/logos/yavuz.webp",
+  "w": 85,
+  "h": 40,
+  "tile": "#ffffff"
+ },
+ "omron.png": {
+  "file": "assets/logos/omron.webp",
+  "w": 129,
+  "h": 26,
+  "tile": "#ffffff"
+ },
+ "finder.png": {
+  "file": "assets/logos/finder.webp",
+  "w": 121,
+  "h": 28,
+  "tile": "#ffffff"
+ },
+ "philips.png": {
+  "file": "assets/logos/philips.webp",
+  "w": 132,
+  "h": 24,
+  "tile": "#ffffff"
+ },
+ "bemis.png": {
+  "file": "assets/logos/bemis.webp",
+  "w": 107,
+  "h": 32,
+  "tile": "#ffffff"
+ },
+ "uni-t.png": {
+  "file": "assets/logos/uni-t.webp",
+  "w": 126,
+  "h": 27,
+  "tile": "#ffffff"
+ },
+ "borsan.png": {
+  "file": "assets/logos/borsan.webp",
+  "w": 128,
+  "h": 27,
+  "tile": "#ffffff"
+ },
+ "osaka.png": {
+  "file": "assets/logos/osaka.webp",
+  "w": 104,
+  "h": 33,
+  "tile": "#ffffff"
+ },
+ "nexans.png": {
+  "file": "assets/logos/nexans.webp",
+  "w": 107,
+  "h": 32,
+  "tile": "#ffffff"
+ },
+ "ack.png": {
+  "file": "assets/logos/ack.webp",
+  "w": 124,
+  "h": 27,
+  "tile": "#ffffff"
+ },
+ "gwest.png": {
+  "file": "assets/logos/gwest.webp",
+  "w": 119,
+  "h": 29,
+  "tile": "#ffffff"
+ }
+}
