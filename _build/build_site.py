@@ -321,6 +321,7 @@ def service_page(p):
   <meta property="og:description" content="{esc(p["desc"])}">
   <meta property="og:url" content="{url}">
   <meta property="og:image" content="{SITE}/assets/hakkimizda1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   {FONT}
   <link rel="stylesheet" href="/style.css?v={V}">
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">

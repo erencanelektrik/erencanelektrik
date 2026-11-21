@@ -4,7 +4,7 @@ PAGES = [
     "slug": "elektrik-taahhut",
     "nav": "Elektrik Taahhüdü",
     "title": "Elektrik Taahhüt Hizmetleri Beylikdüzü | Erencan Elektrik",
-    "desc": "Beylikdüzü merkezli elektrik taahhüt hizmetleri: endüstriyel tesis, ticari yapı ve konut projelerinde alçak gerilim, bina içi tesisat ve dış saha uygulamaları. Keşif ücretsiz.",
+    "desc": "Beylikdüzü merkezli elektrik taahhüdü: fabrika, ticari yapı ve konutlarda alçak gerilim, bina içi tesisat ve dış saha uygulamaları. Keşif ücretsiz.",
     "h1": "Elektrik Taahhüt Hizmetleri",
     "lead": "Endüstriyel tesisler, ticari yapılar ve konut projelerinde elektrik altyapısını uçtan uca, standartlara uygun şekilde kuruyoruz. 2004'ten beri Beylikdüzü merkezli olarak İstanbul geneline ve İstanbul dışındaki projelere hizmet veriyoruz.",
     "service_type": "Elektrik taahhüt",
@@ -37,7 +37,7 @@ PAGES = [
   {
     "slug": "pano-tasarim-montaj",
     "nav": "Pano Tasarımı & Montajı",
-    "title": "Elektrik Pano Tasarımı ve Montajı Beylikdüzü | Erencan Elektrik",
+    "title": "Elektrik Pano Tasarımı ve Montajı | Erencan Elektrik",
     "desc": "IEC standartlarında endüstriyel ve bina tipi elektrik pano tasarımı ve montajı. Teklif, onay, imalat. Beylikdüzü'nden Türkiye geneline.",
     "h1": "Elektrik Pano Tasarımı ve Montajı",
     "lead": "Tesisinizin ihtiyacına uygun, IEC standartlarında, yüksek güvenlikli endüstriyel ve bina tipi panolar tasarlayıp monte ediyoruz. Pano malzemelerini Siemens, Schneider Electric, Legrand ve Entes gibi markaların ürünlerinden kendi stoğumuzdan sağlıyoruz.",
@@ -65,8 +65,8 @@ PAGES = [
   {
     "slug": "elektrik-malzemesi",
     "nav": "Elektrik Malzemesi",
-    "title": "Beylikdüzü Elektrik Malzemeleri – Perakende ve Toptan | Erencan Elektrik",
-    "desc": "Beylikdüzü'nde perakende ve toptan elektrik malzemesi: Siemens, Schneider Electric, Legrand, Viko, Nexans, Öznur Kablo ve daha fazlası. Firmalara cari hesap, Türkiye geneline gönderim.",
+    "title": "Beylikdüzü Elektrik Malzemesi, Perakende ve Toptan | Erencan",
+    "desc": "Beylikdüzü'nde perakende ve toptan elektrik malzemesi: Siemens, Schneider, Legrand, Viko, Nexans. Firmalara cari hesap, Türkiye geneline gönderim.",
     "h1": "Elektrik Malzemeleri – Perakende ve Toptan Satış",
     "lead": "Beylikdüzü Birlik Sanayi Sitesi'ndeki mağazamızda sektörün önde gelen markalarının şalt, kablo, bağlantı ve pano malzemelerini satıyoruz. Tek parça alışverişten büyük proje siparişlerine kadar hem perakende hem toptan satış yapıyor, Türkiye'nin her yerine gönderiyoruz.",
     "service_type": "Elektrik malzemesi satışı",
@@ -105,7 +105,7 @@ PAGES = [
   {
     "slug": "proje-muhendislik",
     "nav": "Proje & Mühendislik",
-    "title": "Elektrik Proje ve Mühendislik Danışmanlığı | Erencan Elektrik",
+    "title": "Elektrik Proje ve Mühendislik Hizmeti | Erencan Elektrik",
     "desc": "Elektrik projelendirme, yük hesapları ve teknik şartname uyumunda mühendislik danışmanlığı. Beylikdüzü merkezli, İstanbul ve Türkiye geneli.",
     "h1": "Elektrik Proje ve Mühendislik Danışmanlığı",
     "lead": "Uzman mühendislik kadromuzla elektrik projelerinizin planlama aşamasında yanınızdayız. Yük hesaplarından teknik şartname uyumuna kadar projenizi uygulamaya hazır hâle getiriyor, aynı ekiple taahhüt ve malzeme tedarikini de üstlenebiliyoruz.",
