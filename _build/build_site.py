@@ -12,7 +12,7 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-V = "11"  # önbellek sürümü: CSS/JS/görsel değişince artırın
+V = "12"  # önbellek sürümü: CSS/JS/görsel değişince artırın
 
 from pages_data import PAGES  # noqa: E402
 
@@ -28,6 +28,9 @@ REVIEW = "https://g.page/r/CSnbCvFlFnZ-EBM/review"
 MAP_EMBED = ("https://maps.google.com/maps?q=Erencan+Elektrik,+Birlik+Sanayi+Sitesi,"
              "+Beylikd%C3%BCz%C3%BC,+%C4%B0stanbul&z=16&output=embed")
 HOURS = "Pazartesi–Cumartesi 08:00–19:00"
+# Web3Forms erişim anahtarı (herkese açık olması sorun değil); talepler MAIL adresine düşer
+FORM_KEY = "0bd47888-8667-4523-94ac-44d884d8b230"
+TRADE = "Erencan Elektrik İnşaat Taahhüt San. ve Tic. Ltd. Şti."
 
 LOGOS = json.load(open(os.path.join(HERE, "logos.json"), encoding="utf-8"))
 BY_STEM = {os.path.splitext(os.path.basename(v["file"]))[0]: v for v in LOGOS.values()}
@@ -37,7 +40,7 @@ FONT = ('<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/arc
         '  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin-ext-wdth-normal.woff2" crossorigin>')
 
 NAV = [("Hizmetler", "/#hizmetler"), ("Markalar", "/#markalar"), ("Referanslar", "/#referanslar"),
-       ("Hakkımızda", "/#hakkimizda"), ("SSS", "/#sss"), ("İletişim", "/#iletisim")]
+       ("Hakkımızda", "/#hakkimizda"), ("SSS", "/#sss"), ("İletişim", "/#iletisim"), ("Teklif al", "/teklif-al/")]
 
 
 def logo(stem_or_key, alt, size=1.0):
@@ -121,9 +124,11 @@ def faq(items):
       </details>''' for q, a in items)
 
 
-def actions():
+def actions(konu=None):
+    q = f"?konu={konu}" if konu else ""
     return f'''<div class="actions">
-        <a class="btn" href="{WA}" rel="noopener">WhatsApp'tan yazın</a>
+        <a class="btn" href="/teklif-al/{q}">Teklif isteyin</a>
+        <a class="btn btn-line" href="{WA}" rel="noopener">WhatsApp'tan yazın</a>
         <a class="btn btn-line" href="tel:{TEL}" aria-label="Bizi arayın: {TEL_TXT}">Bizi arayın</a>
       </div>'''
 
@@ -150,7 +155,7 @@ HOME_FAQ = [
     ("Hangi bölgelere hizmet veriyorsunuz?", "Beylikdüzü merkezli olarak İstanbul genelinde hizmet veriyoruz. İstanbul dışındaki projelere de iş ve malzeme gönderimi yapıyoruz."),
     ("Ödeme seçenekleri nelerdir?", "Nakit, kredi kartı ve havale/EFT ile ödeme kabul ediyoruz."),
     ("Ürünlerde garanti nasıl işliyor?", "Sattığımız tüm ürünlerde üretici firmanın garanti koşulları geçerlidir."),
-    ("Çalışma saatleriniz nedir, nasıl teklif alabilirim?", "Pazartesi–Cumartesi 08:00–19:00 arası açığız. Teklif için 0532 586 18 60 numarasından arayabilir veya WhatsApp'tan yazabilirsiniz."),
+    ("Çalışma saatleriniz nedir, nasıl teklif alabilirim?", "Pazartesi–Cumartesi 08:00–19:00 arası açığız. Teklif için sitemizdeki teklif formunu doldurabilir, 0532 586 18 60 numarasından arayabilir veya WhatsApp'tan yazabilirsiniz."),
 ]
 
 
@@ -337,7 +342,7 @@ def service_page(p):
       <nav class="crumbs" aria-label="Sayfa konumu"><a href="/">Ana sayfa</a><span aria-hidden="true">/</span><span aria-current="page">{p["nav"]}</span></nav>
       <h1>{p["h1"]}</h1>
       <p class="lead">{p["lead"]}</p>
-      {actions()}
+      {actions(p["slug"])}
     </div>
   </section>
 
@@ -351,8 +356,8 @@ def service_page(p):
     </section>
     <section class="sub-block sub-contact">
       <h2>Teklif almak için</h2>
-      <p>Pazartesi–Cumartesi 08:00–19:00 arası arayabilir ya da WhatsApp'tan yazabilirsiniz. Mağazamız {ADDR_LINE1}, {ADDR_LINE2} adresinde.</p>
-      {actions()}
+      <p>Teklif formunu doldurun, talebinizi inceleyip size dönelim. Dilerseniz Pazartesi–Cumartesi 08:00–19:00 arası arayabilir ya da WhatsApp'tan yazabilirsiniz. Mağazamız {ADDR_LINE1}, {ADDR_LINE2} adresinde.</p>
+      {actions(p["slug"])}
     </section>
     <nav class="sub-block" aria-label="Diğer hizmetler">
       <h2>Diğer hizmetlerimiz</h2>
@@ -366,6 +371,183 @@ def service_page(p):
 '''
 
 
+# ---------- teklif formu, KVKK ve teşekkür sayfaları ----------
+def simple_page(title, desc, path, main, crumb=None, ld=(), noindex=False, current=None):
+    url = f"{SITE}{path}"
+    robots = '\n  <meta name="robots" content="noindex">' if noindex else ""
+    lds = list(ld)
+    if crumb:
+        lds.append({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": f"{SITE}/"},
+            {"@type": "ListItem", "position": 2, "name": crumb, "item": url}]})
+    ld_html = "\n".join('  <script type="application/ld+json">\n' + json.dumps(x, ensure_ascii=False, indent=2) + "\n  </script>" for x in lds)
+    crumbs = (f'<nav class="crumbs" aria-label="Sayfa konumu"><a href="/">Ana sayfa</a><span aria-hidden="true">/</span>'
+              f'<span aria-current="page">{crumb}</span></nav>') if crumb else ""
+    return f'''<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{esc(title)}</title>
+  <meta name="description" content="{esc(desc)}">{robots}
+  <link rel="canonical" href="{url}">
+  <meta name="theme-color" content="#093b6f">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:site_name" content="Erencan Elektrik">
+  <meta property="og:title" content="{esc(title)}">
+  <meta property="og:description" content="{esc(desc)}">
+  <meta property="og:url" content="{url}">
+  <meta property="og:image" content="{SITE}/assets/hakkimizda1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  {FONT}
+  <link rel="stylesheet" href="/style.css?v={V}">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+{ld_html}
+</head>
+<body>
+{header(current)}
+<main id="icerik">
+  <section class="page-head">
+    <div class="wrap">
+      {crumbs}
+{main}
+</main>
+{footer()}
+</body>
+</html>
+'''
+
+
+KONULAR = [
+    ("elektrik-malzemesi", "Elektrik malzemesi"),
+    ("toptan", "Toptan alım / cari hesap"),
+    ("pano-tasarim-montaj", "Pano tasarımı ve montajı"),
+    ("elektrik-taahhut", "Elektrik taahhüdü / keşif"),
+    ("proje-muhendislik", "Proje ve mühendislik"),
+    ("diger", "Diğer"),
+]
+
+
+def teklif_page():
+    opts = "".join(f'<option value="{name}" data-konu="{k}">{name}</option>' for k, name in KONULAR)
+    main = f'''      <h1>Teklif isteyin</h1>
+      <p class="lead">İhtiyacınızı kısaca yazın; malzeme için fiyat ve stok durumunu, pano ve taahhüt işleri için keşif ya da teklif bilgisini e-postayla veya telefonla iletelim.</p>
+    </div>
+  </section>
+
+  <div class="wrap quote">
+    <form class="quote-form" id="teklif-formu" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <input type="hidden" name="access_key" value="{FORM_KEY}">
+      <input type="hidden" name="subject" value="Yeni teklif talebi (erencanelektrik.com)">
+      <input type="hidden" name="from_name" value="Erencan Elektrik web sitesi">
+      <input type="hidden" name="redirect" value="{SITE}/teklif-al/tesekkurler/">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="field">
+        <label for="f-konu">Konu</label>
+        <select id="f-konu" name="Konu" required>{opts}</select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-ad">Ad soyad</label>
+          <input id="f-ad" name="Ad soyad" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-firma">Firma <span class="opt">(isteğe bağlı)</span></label>
+          <input id="f-firma" name="Firma" type="text" autocomplete="organization">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-tel">Telefon</label>
+          <input id="f-tel" name="Telefon" type="tel" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="field">
+          <label for="f-mail">E-posta <span class="opt">(isteğe bağlı)</span></label>
+          <input id="f-mail" name="email" type="email" autocomplete="email">
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-yer">İl / ilçe <span class="opt">(isteğe bağlı)</span></label>
+        <input id="f-yer" name="İl / ilçe" type="text" autocomplete="address-level2" placeholder="Örn. Esenyurt, İstanbul">
+      </div>
+      <div class="field">
+        <label for="f-talep">Talebiniz</label>
+        <textarea id="f-talep" name="Talep" rows="8" required placeholder="Ürün, marka ve adetleri ya da yapılacak işi yazın. Malzeme listenizi buraya yapıştırabilirsiniz."></textarea>
+      </div>
+      <div class="field check">
+        <input id="f-kvkk" name="KVKK" type="checkbox" value="Aydınlatma metnini okudu, onayladı" required>
+        <label for="f-kvkk"><a href="/kvkk/" target="_blank" rel="noopener">KVKK aydınlatma metnini</a> okudum; bilgilerimin teklif talebim için işlenmesini ve bu amaçla yurt dışındaki e-posta sunucularına aktarılmasını kabul ediyorum.</label>
+      </div>
+      <p class="form-status" id="form-durum" role="status" aria-live="polite"></p>
+      <button class="btn" type="submit">Teklif talebini gönder</button>
+    </form>
+
+    <aside class="quote-side" aria-label="Teklif için ipuçları">
+      <h2>Ne yazmalısınız?</h2>
+      <dl class="tips">
+        <div><dt>Malzeme</dt><dd>Ürün adı, marka ve adet. Uzun bir listeyi olduğu gibi yapıştırabilirsiniz.</dd></div>
+        <div><dt>Pano</dt><dd>Pano tipi, giriş akımı ve çıkış sayısı. Tek hat şemanız varsa belirtin.</dd></div>
+        <div><dt>Taahhüt</dt><dd>İş yerinin türü, ilçesi ve yaklaşık büyüklüğü. Keşif ücretsizdir.</dd></div>
+      </dl>
+      <h2>Dosya göndermek için</h2>
+      <p>Şema, fotoğraf veya Excel listesini <a href="mailto:{MAIL}">{MAIL}</a> adresine ya da <a href="{WA}" rel="noopener">WhatsApp'tan</a> gönderebilirsiniz.</p>
+      <p>Telefon: <a href="tel:{TEL}">{TEL_TXT}</a><br>{HOURS}</p>
+    </aside>
+  </div>'''
+    ld = [{"@context": "https://schema.org", "@type": "ContactPage", "name": "Teklif isteyin",
+           "url": f"{SITE}/teklif-al/", "about": {"@id": f"{SITE}/#isletme"}}]
+    return simple_page("Elektrik Malzemesi ve Pano Teklifi Alın | Erencan Elektrik",
+                       "Elektrik malzemesi, pano, taahhüt ve proje işleriniz için online teklif isteyin. Malzeme listenizi yazın, Beylikdüzü'ndeki ekibimiz size dönsün.",
+                       "/teklif-al/", main, crumb="Teklif al", ld=ld, current="/teklif-al/")
+
+
+def tesekkur_page():
+    main = f'''      <h1>Talebiniz bize ulaştı</h1>
+      <p class="lead">Teşekkürler. Talebinizi inceleyip mesai saatlerinde ({HOURS}) size dönüş yapacağız. Acil bir durum için <a href="tel:{TEL}">{TEL_TXT}</a> numarasından bize ulaşabilirsiniz.</p>
+      <div class="actions"><a class="btn" href="/">Ana sayfaya dön</a></div>
+    </div>
+  </section>'''
+    return simple_page("Talebiniz alındı | Erencan Elektrik", "Teklif talebiniz Erencan Elektrik'e ulaştı.",
+                       "/teklif-al/tesekkurler/", main, noindex=True)
+
+
+def kvkk_page():
+    main = f'''      <h1>Kişisel verilerin korunması aydınlatma metni</h1>
+      <p class="lead">Bu metin, teklif formu ve iletişim kanallarımız aracılığıyla bize ilettiğiniz kişisel verilerin 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında nasıl işlendiğini açıklar.</p>
+    </div>
+  </section>
+
+  <div class="wrap narrow legal">
+    <h2>Veri sorumlusu</h2>
+    <p>{TRADE}<br>{ADDR_LINE1}, {ADDR_LINE2}<br>E-posta: <a href="mailto:{MAIL}">{MAIL}</a><br>Telefon: <a href="tel:{TEL}">{TEL_TXT}</a></p>
+
+    <h2>İşlenen kişisel veriler</h2>
+    <p>Teklif formunda paylaştığınız ad soyad, firma adı, telefon numarası, e-posta adresi, il/ilçe bilgisi ve talep metninize yazdığınız bilgiler.</p>
+
+    <h2>İşleme amacı ve hukuki sebep</h2>
+    <p>Verileriniz yalnızca teklif talebinizi değerlendirmek, size fiyat ve teklif iletmek ve bu konuda sizinle iletişim kurmak amacıyla işlenir. Hukuki sebep, KVKK'nın 5. maddesinin 2. fıkrasının (c) bendi uyarınca bir sözleşmenin kurulmasıyla doğrudan ilgili olmasıdır.</p>
+
+    <h2>Aktarım</h2>
+    <p>Form, e-posta iletimi için Web3Forms hizmetini kullanır ve talepler şirketimizin Gmail (Google) e-posta hesabına iletilir. Bu hizmet sağlayıcıların sunucuları yurt dışında bulunduğundan, formu gönderirken verdiğiniz açık rızaya dayanarak verileriniz yurt dışına aktarılır. Verileriniz bunun dışında üçüncü kişilerle paylaşılmaz, pazarlama amacıyla kullanılmaz.</p>
+
+    <h2>Saklama süresi</h2>
+    <p>Teklif talepleri, talebin sonuçlanmasından ve ilgili yasal saklama yükümlülüklerinin sona ermesinden sonra silinir.</p>
+
+    <h2>Haklarınız</h2>
+    <p>KVKK'nın 11. maddesi uyarınca verilerinizin işlenip işlenmediğini öğrenme, bilgi talep etme, düzeltilmesini veya silinmesini isteme ve işlemeye itiraz etme haklarına sahipsiniz. Başvurularınızı <a href="mailto:{MAIL}">{MAIL}</a> adresine iletebilirsiniz.</p>
+  </div>'''
+    return simple_page("KVKK Aydınlatma Metni | Erencan Elektrik",
+                       "Erencan Elektrik teklif formu ve iletişim kanalları için kişisel verilerin korunması aydınlatma metni.",
+                       "/kvkk/", main, crumb="KVKK aydınlatma metni")
+
+
+EXTRA = {"teklif-al": teklif_page, "teklif-al/tesekkurler": tesekkur_page, "kvkk": kvkk_page}
+
+
 if __name__ == "__main__":
     with open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8") as f:
         f.write(home())
@@ -374,4 +556,9 @@ if __name__ == "__main__":
         os.makedirs(d, exist_ok=True)
         with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as f:
             f.write(service_page(p))
-    print("5 sayfa yazıldı")
+    for slug, fn in EXTRA.items():
+        d = os.path.join(ROOT, slug)
+        os.makedirs(d, exist_ok=True)
+        with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as f:
+            f.write(fn())
+    print(f"{5 + len(EXTRA)} sayfa yazıldı")

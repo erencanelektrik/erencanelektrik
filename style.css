@@ -162,6 +162,39 @@ p{margin:0 0 1em}
 .other-links a{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;color:var(--ink);font-weight:600}
 .other-links a:hover{border-color:var(--navy);color:var(--navy)}
 
+/* Teklif formu */
+.quote{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:56px;padding:48px 0 72px;align-items:start}
+.quote-form{display:grid;gap:20px;border-top:2px solid var(--ink);padding-top:28px}
+.field{display:grid;gap:6px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field label{font-weight:600}
+.opt{font-weight:400;color:var(--ink-2);font-size:15px}
+.field input,.field select,.field textarea{font:inherit;color:var(--ink);background:var(--paper);border:1px solid #aeb7bf;border-radius:var(--radius);padding:12px 14px;min-height:48px;width:100%}
+.field textarea{resize:vertical;min-height:180px;line-height:1.5}
+.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid rgba(9,59,111,.25);outline-offset:0;border-color:var(--navy)}
+.field [aria-invalid="true"]{border-color:#b3261e}
+.field ::placeholder{color:#7b858e}
+.check{grid-template-columns:auto 1fr;align-items:start;gap:12px}
+.check input{width:22px;height:22px;min-height:0;margin:2px 0 0;padding:0;accent-color:var(--navy)}
+.check label{font-weight:400;color:var(--ink-2);font-size:15.5px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.form-status{margin:0;font-weight:600;min-height:1.4em}
+.form-status.ok{color:#1f6b35}
+.form-status.err{color:#b3261e}
+.quote-form .btn{justify-self:start;cursor:pointer;font:inherit;font-weight:600}
+.quote-form .btn[disabled]{opacity:.6;cursor:progress}
+.quote-side{background:var(--steel);border-radius:var(--radius);padding:28px}
+.quote-side h2{font-size:22px;margin-bottom:14px}
+.quote-side h2 + p,.quote-side p{color:var(--ink-2)}
+.quote-side .tips{margin:0 0 28px}
+.tips div{padding:12px 0;border-bottom:1px solid var(--line)}
+.tips div:first-child{border-top:2px solid var(--ink)}
+.tips dt{font-weight:600}
+.tips dd{margin:2px 0 0;color:var(--ink-2)}
+.legal{padding:24px 0 72px}
+.legal h2{font-size:22px;margin:32px 0 8px}
+.legal p{color:var(--ink-2);max-width:68ch}
+
 /* Alt bilgi */
 .site-footer{background:var(--ink);color:#c9d0d6;padding:56px 0 24px;font-size:15.5px}
 .site-footer a{color:#fff}
@@ -189,6 +222,7 @@ p{margin:0 0 1em}
   .foot{grid-template-columns:1fr 1fr}
   .foot > div:first-child{grid-column:1 / -1}
   .map{min-height:320px}
+  .quote{grid-template-columns:1fr;gap:36px;padding-top:32px}
   .menu-btn{display:block}
   .bar-tel{display:none}
   .site-header nav{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);display:none}
@@ -218,6 +252,9 @@ p{margin:0 0 1em}
   .logo-grid img{transform:scale(.9)}
   .foot{grid-template-columns:1fr}
   .sub-contact{padding:24px}
+  .field-row{grid-template-columns:1fr}
+  .quote-form .btn{justify-self:stretch;justify-content:center}
+  .quote-side{padding:22px}
   .quickbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);border-top:1px solid var(--line);padding:8px;gap:8px}
   .quickbar a{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:var(--radius);font-weight:600;text-decoration:none;background:var(--navy);color:#fff}
   .quickbar a:first-child{background:var(--paper);color:var(--navy);border:2px solid var(--navy)}
