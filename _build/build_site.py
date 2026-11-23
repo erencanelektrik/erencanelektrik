@@ -12,7 +12,7 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-V = "13"  # önbellek sürümü: CSS/JS/görsel değişince artırın
+V = "14"  # önbellek sürümü: CSS/JS/görsel değişince artırın
 TODAY = "2026-11-24"
 
 from pages_data import PAGES  # noqa: E402
@@ -220,14 +220,14 @@ def header(lang, path):
   <div class="wrap bar">
     <a class="brand" href="{t["home"]}" aria-label="{t["home_label"]}">
       <img src="/assets/logo.webp?v={V}" alt="" width="60" height="60">
-      <span>Erencan Elektrik</span>
+      <span class="brand-name"><span>Erencan</span><span>Elektrik</span></span>
     </a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu" data-open="{t["menu"]}" data-close="{t["close"]}">{t["menu"]}</button>
     <nav aria-label="{t["main_menu"]}">
       <ul class="menu" id="site-menu">{links}</ul>
     </nav>
-    {sw}
     <a class="bar-tel" href="tel:{TEL}" aria-label="{t["call"]}: {TEL_TXT}">{t["call"]}</a>
+    {sw}
   </div>
 </header>'''
 

@@ -47,9 +47,13 @@ p{margin:0 0 1em}
 .bar{display:flex;align-items:center;gap:28px;min-height:84px}
 .brand{display:flex;align-items:center;gap:14px;color:var(--navy);text-decoration:none;font-weight:800;font-stretch:82%;font-size:28px;line-height:1;letter-spacing:-.01em;margin-right:auto}
 .brand img{width:60px;height:60px}
+.brand-name{display:flex;flex-direction:column;font-stretch:100%;font-weight:800;letter-spacing:-.015em}
+.brand-name span:first-child{font-size:30px;line-height:.95}
+.brand-name span:last-child{font-size:23px;line-height:1.05}
 .menu{display:flex;gap:4px;list-style:none;margin:0;padding:0}
 .menu a{display:block;padding:8px 10px;color:var(--ink-2);text-decoration:none;font-size:15.5px}
 .menu a:hover{color:var(--ink);text-decoration:underline}
+.lang-switch{order:5}
 .bar-tel{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:var(--radius);background:var(--navy);color:#fff;font-weight:600;text-decoration:none;white-space:nowrap}
 .bar-tel:hover{background:var(--navy-deep);color:#fff}
 .menu-btn{display:none;font:inherit;font-weight:600;background:none;border:1px solid var(--line);border-radius:var(--radius);padding:8px 14px;color:var(--ink);cursor:pointer}
@@ -312,8 +316,10 @@ a:hover .more::after{width:28px}
 }
 @media (max-width:600px){
   .bar{min-height:72px}
-  .brand{font-size:22px;gap:9px}
-  .brand img{width:46px;height:46px}
+  .brand{gap:10px}
+  .brand img{width:50px;height:50px}
+  .brand-name span:first-child{font-size:25px}
+  .brand-name span:last-child{font-size:19px}
   body{font-size:16.5px;padding-bottom:64px}
   .block{padding:52px 0}
   .hero .actions{display:grid;grid-template-columns:1fr 1fr}
