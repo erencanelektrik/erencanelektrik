@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /onizleme/
 
 Sitemap: https://erencanelektrik.com/sitemap.xml
