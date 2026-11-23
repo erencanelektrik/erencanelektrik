@@ -88,3 +88,39 @@ if (form) {
     }
   });
 }
+
+// Ana başlık daktilo efekti. Metin HTML'de olduğu gibi durur (arama motorları ve
+// ekran okuyucular tam metni görür); burada yalnızca harfler sırayla görünür olur.
+const typeH1 = document.querySelector('.type-h1');
+if (typeH1) {
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (still) {
+    typeH1.classList.add('ready');
+  } else {
+    const text = typeH1.textContent;
+    typeH1.setAttribute('aria-label', text);
+    typeH1.textContent = '';
+    const chars = [...text].map((c) => {
+      const s = document.createElement('span');
+      s.className = 'ch';
+      s.setAttribute('aria-hidden', 'true');
+      s.textContent = c;
+      typeH1.appendChild(s);
+      return s;
+    });
+    const cursor = document.createElement('span');
+    cursor.className = 'type-cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+    typeH1.classList.add('ready');
+    let i = 0;
+    const step = Math.max(18, Math.min(45, 1400 / chars.length));
+    const tick = () => {
+      chars[i].classList.add('on');
+      chars[i].after(cursor);
+      i += 1;
+      if (i < chars.length) setTimeout(tick, chars[i - 1].textContent === ' ' ? step * 0.6 : step);
+      else cursor.classList.add('bitti');
+    };
+    setTimeout(tick, 250);
+  }
+}

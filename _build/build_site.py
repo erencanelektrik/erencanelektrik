@@ -12,7 +12,7 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-V = "14"  # önbellek sürümü: CSS/JS/görsel değişince artırın
+V = "15"  # önbellek sürümü: CSS/JS/görsel değişince artırın
 TODAY = "2026-11-24"
 
 from pages_data import PAGES  # noqa: E402
@@ -38,8 +38,9 @@ LOGOS = json.load(open(os.path.join(HERE, "logos.json"), encoding="utf-8"))
 BY_STEM = {os.path.splitext(os.path.basename(v["file"]))[0]: v for v in LOGOS.values()}
 LISTS = json.load(open(os.path.join(HERE, "logo_lists.json"), encoding="utf-8"))
 
-FONT = ('<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin-wdth-normal.woff2" crossorigin>\n'
-        '  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin-ext-wdth-normal.woff2" crossorigin>')
+FONT = ('<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/saira-latin-wdth-normal.woff2" crossorigin>\n'
+        '  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/saira-latin-ext-wdth-normal.woff2" crossorigin>\n'
+        '  <script>document.documentElement.classList.add("js")</script>')
 
 # ---------- sayfa eşleşmeleri (dil geçişi ve hreflang için) ----------
 EN_OF = {"/": "/en/", "/teklif-al/": "/en/quote/", "/teklif-al/tesekkurler/": "/en/quote/thank-you/",
@@ -481,7 +482,7 @@ def home(lang):
     </picture>
     <div class="wrap hero1-inner">
       <p class="hero1-kicker">{h["kicker"]}</p>
-      <h1>{h["h1"]}</h1>
+      <h1 class="type-h1">{h["h1"]}</h1>
       <p class="lead">{h["lead"]}</p>
       <div class="actions">
         <a class="btn btn-light" href="{t["quote"]}">{t["ask_quote"]}</a>
