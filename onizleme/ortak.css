@@ -1,0 +1,26 @@
+/* Önizlemelerde ortak parçalar */
+.ico{width:44px;height:44px;color:var(--navy)}
+.more{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:18px;font-weight:600;color:var(--navy)}
+.more::after{content:"";width:18px;height:2px;background:currentColor;transition:width .2s}
+a:hover .more::after{width:28px}
+
+/* Teklif bandı: üst kenarda iletken renkleri */
+.cta-band{background:var(--navy-deep);color:#fff;position:relative}
+.cta-band::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;
+  background:linear-gradient(90deg,var(--l1) 0 20%,var(--l2) 20% 40%,var(--l3) 40% 60%,var(--n) 60% 80%,transparent 80%),
+             repeating-linear-gradient(135deg,var(--pe-g) 0 6px,var(--pe-y) 6px 12px)}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:64px 0}
+.cta-band h2{color:#fff;margin-bottom:12px;max-width:26ch}
+.cta-band p{color:#c8d6e6;max-width:52ch;margin:0}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px;flex-shrink:0}
+
+/* SSS: başlık solda sabit, sorular sağda */
+.faq-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:56px;align-items:start}
+.faq-head{position:sticky;top:120px}
+.faq-head p{color:var(--ink-2);max-width:32ch}
+
+@media (max-width:900px){
+  .cta-inner{flex-direction:column;align-items:flex-start;gap:24px;padding:52px 0}
+  .faq-grid{grid-template-columns:1fr;gap:8px}
+  .faq-head{position:static}
+}

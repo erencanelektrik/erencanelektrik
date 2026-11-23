@@ -477,6 +477,7 @@ def teklif_page():
       <div class="field">
         <label for="f-talep">Talebiniz</label>
         <textarea id="f-talep" name="Talep" rows="8" required placeholder="Ürün, marka ve adetleri ya da yapılacak işi yazın. Malzeme listenizi buraya yapıştırabilirsiniz."></textarea>
+        <p class="hint">Şema, fotoğraf veya Excel listesi göndermek için <a href="mailto:{MAIL}?subject=Teklif%20talebi%20-%20ek%20dosya">{MAIL}</a> adresine e-posta atabilirsiniz.</p>
       </div>
       <div class="field check">
         <input id="f-kvkk" name="KVKK" type="checkbox" value="Aydınlatma metnini okudu, onayladı" required>
